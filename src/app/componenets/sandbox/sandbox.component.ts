@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-
+import { MobileUserService } from "src/app/services/mobileUser.service";
 @Component({
     selector: 'sandbox',
     template: `
@@ -65,12 +65,27 @@ import { Component } from "@angular/core";
             </div>
             <input type="submit" value= "Submit" class="btn btn-success">
         </form>
+    </div>
+    <div *ngFor= "let item of mobileUsers">
+        <div>
+            <ul class= "list-group ">
+            <li>name : {{item.userName}}</li>
+            </ul>
+        </div>    
     </div>        
         `,
     styleUrls:['./sandbox.component.css']    
 })
 
 export class SandboxComponenet{
+    mobileUsers:any;
+    constructor(public mobileUserService:MobileUserService){
+      const result = this.mobileUserService.getAllMobileUsers()
+      .subscribe(resp => {
+        console.log(resp)
+        this.mobileUsers = { ...resp.body };
+    });
+    }
     user = {
         userName : "",
         mobileNumber : "",
