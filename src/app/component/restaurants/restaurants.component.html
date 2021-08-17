@@ -1,0 +1,23 @@
+<table *ngIf= "restaurants.data?.length >0 else noRestaurants"class= "table table-striped">
+    <thead class= "thead-inverse">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>More Information</th>
+        </tr>   
+    </thead>
+    <tbody>
+        <tr *ngFor= "let restaurant of restaurants.data">
+            <td>{{restaurant.id}}</td>
+            <td>{{restaurant.name}}</td>
+            <td>{{restaurant.address}}</td>
+            <td><a href= "" class="btn btn-escondary btn-sm">For Details</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<ng-template #noRestaurants>
+        <hr>
+        <h5>NO DATA ,STILL EMPTY .</h5>>
+</ng-template>

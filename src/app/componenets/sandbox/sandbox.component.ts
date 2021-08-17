@@ -24,7 +24,7 @@ import { MobileUserService } from "src/app/services/mobileUser.service";
             <div>
                 <label>Mobile Number</label>
                 <input 
-                    type= "number"
+                    type= "string"
                     class= "form-control" 
                     [(ngModel)]= "user.mobileNumber"
                     name= "mobileNumber"
@@ -66,11 +66,15 @@ import { MobileUserService } from "src/app/services/mobileUser.service";
             <input type="submit" value= "Submit" class="btn btn-success">
         </form>
     </div>
-    <div *ngFor= "let item of mobileUsers">
+    <div *ngFor= "let item of mobileUsers.data ; let i = index">
         <div>
-            <ul class= "list-group ">
-            <li>name : {{item.userName}}</li>
-            </ul>
+            <ol class= "list-group ">
+            <li>name : {{i}} {{item.userName}}</li>
+            <li>name : {{i}} {{item.email}}</li>
+            <li>name : {{i}} {{item.mobileNumber}}</li>
+            </ol>
+            <br>
+                <button class= "btn btn-danger btn-sm" (click)= "onDeleteCLick(item.id)">Remove Mobile User </button>
         </div>    
     </div>        
         `,
@@ -78,12 +82,11 @@ import { MobileUserService } from "src/app/services/mobileUser.service";
 })
 
 export class SandboxComponenet{
-    mobileUsers:any;
+    mobileUsers:any=[];
     constructor(public mobileUserService:MobileUserService){
       const result = this.mobileUserService.getAllMobileUsers()
-      .subscribe(resp => {
-        console.log(resp)
-        this.mobileUsers = { ...resp.body };
+      .subscribe(mobileUsersData => {
+        this.mobileUsers =mobileUsersData;
     });
     }
     user = {
@@ -93,9 +96,21 @@ export class SandboxComponenet{
         password : "",
     }
     onSubmit(f:any){
-        const {value , valid} = f
-        if(valid)
-            console.log(value)    
-        console.log('FORM IS INVALID')
+        this.mobileUserService.signupMobileUser(this.user)
+        .subscribe((user)=>{
+            console.log((user));
+        })
+        this.user = {
+            userName : "      ",
+            mobileNumber : "      ",
+            email : "      ",
+            password : "        ",
+        }
+    }
+    onDeleteCLick(userId:number){
+        this.mobileUserService.removeMobileUser(userId)
+        .subscribe((response)=>{
+            console.log((response));
+        })
     }
 }

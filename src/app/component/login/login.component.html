@@ -1,0 +1,35 @@
+<body><div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-block">
+          <img class="mx-auto d-block" src="/assets/img/logo.png" alt="">
+          <h1 class="text-center">Login</h1>
+        <form novalidate
+      (ngSubmit)="onSubmit()"
+      #f="ngForm">
+            <div class="form-group">
+              <label for="userName">User Name</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                [(ngModel)]="userName" 
+                name="userName"
+                required
+                >
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input 
+                type="password" 
+                class="form-control" 
+                [(ngModel)]="userPassword" 
+                name="userPassword"
+                minlength="6"
+                required="">
+            </div>
+            <input type="submit" class="btn btn-primary btn-block" value="Submit">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div></body>
