@@ -8,8 +8,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Notes: 
 most of features came from angular front to back course like :<br> 
-#Authirization [login / register]<br>
-#Authirization [login / register]<br>
-#display restaurant details on a dashboard<br>
-#delete restaurant<br>
-#add restaurant <br>
+### Authirization [login / register]<br>
+### Authirization [login / register]<br>
+### display restaurant details on a dashboard<br>
+### delete restaurant<br>
+### add restaurant <br>
