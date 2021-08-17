@@ -19,4 +19,12 @@ export class RestaurantsComponent implements OnInit {
           })
   }
 
+  onClick(restaurantId:any){
+    this.restaurantService.removeRestaurant(restaurantId)
+    .subscribe(response =>{
+      console.log(response)
+      console.log(restaurantId)
+    })
+  }
+
 }

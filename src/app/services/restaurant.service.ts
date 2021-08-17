@@ -21,4 +21,10 @@ export class RestaurantService {
         }
         )
     }
+    removeRestaurant(restaurantId:any){
+        return this.http.delete('/api/restaurant/delete/'+ restaurantId,
+        {
+            headers: { 'Content-Type': 'application/json', 'mobile-user-token': `${localStorage.getItem('token')}`}
+        })
+    }
 }
