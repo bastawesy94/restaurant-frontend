@@ -10,7 +10,7 @@ export class MobileUserService {
         this.users= []
     }
     getAllMobileUsers(){
-        return this.http.get('/api/mobile-user/all',
+        return this.http.get('/api/mobile-user/get-all',
         {
             headers: { 'Content-Type': 'application/json'}
         }
@@ -28,13 +28,6 @@ export class MobileUserService {
         {
             userName, password
         },
-        {
-            headers: { 'Content-Type': 'application/json'}
-        }
-        )
-    }
-    removeMobileUser(userId:number){
-        return this.http.delete('/api/mobile-user/delete/'+userId,
         {
             headers: { 'Content-Type': 'application/json'}
         }

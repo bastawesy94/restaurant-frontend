@@ -8,21 +8,21 @@ export class RestaurantService {
         this.restaurants= []
     }
     getAllRestaurants(){
-        return this.http.get('/api/restaurant/all',
+        return this.http.get('/api/restaurant/get-all',
         {
             headers: { 'Content-Type': 'application/json'}
         }
         )
     }
     addRestaurant(restaurant:any){
-        return this.http.post('/api/restaurant/create',restaurant,
+        return this.http.post('/api/restaurant/add',restaurant,
         {
             headers: { 'Content-Type': 'application/json', 'mobile-user-token': `${localStorage.getItem('token')}`}
         }
         )
     }
     removeRestaurant(restaurantId:any){
-        return this.http.delete('/api/restaurant/delete/'+ restaurantId,
+        return this.http.delete('/api/restaurant/remove/'+ restaurantId,
         {
             headers: { 'Content-Type': 'application/json', 'mobile-user-token': `${localStorage.getItem('token')}`}
         })

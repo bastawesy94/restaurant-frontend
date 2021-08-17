@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SandboxComponenet } from './componenets/sandbox/sandbox.component';
 import {FormsModule} from '@angular/forms'
 import { MobileUserService } from './services/mobileUser.service';
 import { RestaurantService } from './services/restaurant.service';
@@ -29,7 +28,6 @@ const appRoutes:Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    SandboxComponenet,
     RestaurantsComponent,
     EditRestaurantComponent,
     NavbarComponent,
